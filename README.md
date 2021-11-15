@@ -1,8 +1,7 @@
 # Documentation
 
-Docs for the [Heron Data](https://www.herondata.io) API.
-
-Built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Docs for the [Heron Data](https://www.herondata.io) API built using
+[Docusaurus](https://docusaurus.io/).
 
 ### Installation
 
