@@ -10,7 +10,6 @@ const config = {
   tagline: 'Transaction Enrichment and Categorization API',
   url: 'https://docs.herondata.io',
   baseUrl: '/',
-  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
