@@ -61,7 +61,7 @@ const config = {
             position: 'left',
             label: 'Tutorial'
           },
-          { to: '/docs/api', label: 'API Reference', position: 'left' },
+          { to: '/api', label: 'API Reference', position: 'left' },
           {
             href: 'https://github.com/heron-data/docs',
             label: 'GitHub',
@@ -77,7 +77,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro'
+                to: '/'
               },
               {
                 label: 'API Reference',
