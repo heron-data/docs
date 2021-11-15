@@ -4,18 +4,21 @@ sidebar_position: 5
 
 # Transactions
 
-!!! info
-    For more detailed API specs, see our [OpenAPI Docs](https://app.herondata.io/docs)
+:::info
+For more technical details, see our [API Reference](/api)
+:::
 
 ## Posting and enriching transactions
 
-!!! warning
-    We recommend batching transactions to a maximum of 1,000 per `POST` request
-    to avoid timeouts.
-    For instructions on how to batch transactions and get enrichments across
-    batches, see [Async Flow](/async).
+:::warning
+We recommend batching transactions to a maximum of 1,000 per `POST` request
+to avoid timeouts.
+For instructions on how to batch transactions and get enrichments across
+batches, see [Async Flow](/async).
+:::
 
-You can `POST` transactions to the `/transactions` endpoint, where the body of the expected request is of the following format:
+You can `POST` transactions to the `/transactions` endpoint, where the body of
+the expected request is of the following format:
 
 ```json
 {

@@ -8,7 +8,7 @@ Depending on the number of transactions you need to post, you might not be able
 to send them all in a single API request as you'll eventually hit timeouts.
 
 The solution to this is to send transactions in batches of 5,000. We will
-process these asynchronously and notify you via a **webhook** once the
+process these asynchronously and notify you via a [webhook](/webhooks) once the
 processing is done.
 
 This process is explained below.

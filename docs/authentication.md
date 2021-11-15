@@ -4,11 +4,13 @@ sidebar_position: 3
 
 # Authentication
 
-!!! info
-    For more detailed API specs, see our [OpenAPI Docs](https://app.herondata.io/docs)
+:::info
+For more technical details, see our [API Reference](/api)
+:::
 
-!!! important "Base URL"
-    `https://app.herondata.io/api`
+:::tip Base URL
+`https://app.herondata.io/api`
+:::
 
 ## Basic Auth
 

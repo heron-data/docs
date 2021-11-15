@@ -4,9 +4,10 @@ sidebar_position: 8
 
 # Webhooks
 
-!!! warning
-    Our webhook calls have a timeout of 10 seconds, so please ensure you send
-    back a `200` response within that time
+:::caution
+Our webhook calls have a timeout of 10 seconds, so please ensure you send
+back a `200` response within that time
+:::
 
 We can send notifications about the progress of certain async processes to a
 URL of your choice. If you would like us to configure a webhook for a
