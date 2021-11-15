@@ -101,6 +101,10 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'Website',
+                href: 'https://www.herondata.io'
+              },
+              {
                 label: 'GitHub',
                 href: 'https://github.com/heron-data'
               }

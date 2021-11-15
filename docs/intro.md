@@ -10,23 +10,13 @@ slug: /
     <img width="350" height="90" src='/img/logo.png' alt='herondata' />
   </a>
 </p>
-<p align="center"><em>decode bank transaction data</em></p>
-
----
-
-**Website**: [herondata.io](https://herondata.io)
-
-**OpenAPI Reference**: [app.herondata.io/docs](https://app.herondata.io/docs)
-
-**Python Client**: [pypi.org/project/heron-data](https://pypi.org/project/heron-data/)
-
----
+<p align="center">
+    <a href="https://www.herondata.io" target="_blank" rel="noopener noreferrer">Website</a> | <a href="/api">OpenAPI Reference</a> | <a href="https://github.com/heron-data/docs" target="_blank" rel="noopener noreferrer">Contribute</a> | <a href="https://pypi.org/project/heron-data/" target="_blank" rel="noopener noreferrer">Python Client</a>
+</p>
 
 Heron Data cleans, enriches and labels your bank transaction data. We do this
 by offering you cleaned descriptions, enrichment with merchants, categories
 (according to labels you define) and other features we calculate.
-
-To get API credentials, please email `hello@herondata.io`!
 
 ## What we offer
 
