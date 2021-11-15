@@ -15,7 +15,6 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'heron-data', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
-
   presets: [
     [
       'redocusaurus',
