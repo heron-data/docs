@@ -8,13 +8,12 @@ sidebar_position: 5
 For more technical details, see our [API Reference](/api)
 :::
 
-## Posting and enriching transactions
+## Enriching transactions
 
 :::warning
 We recommend batching transactions to a maximum of 1,000 per `POST` request
-to avoid timeouts.
-For instructions on how to batch transactions and get enrichments across
-batches, see [Async Flow](/async).
+to avoid timeouts. For instructions on how to batch transactions and get
+enrichments across batches, see [Async Flow](/async).
 :::
 
 You can `POST` transactions to the `/transactions` endpoint, where the body of
@@ -39,25 +38,23 @@ the expected request is of the following format:
 }
 ```
 
-Where the fields are as follows:
+Where the fields are as follows (* is required):
 
-* `description` (`string`)<span style="color:red">\*</span> Transaction description.
-* `amount` (`float`)<span style="color:red">\*</span> Transaction amount. We expect account inflows (credits) to be positive, account outflows (debits) to be negative. <span style="color:red">For transactions pulled with Plaid, please flip the amount sign for all transactions.</span>
-* `currency` (`string`)<span style="color:red">\*</span> 3 letter ISO code for currency, e.g., `USD`
-* `timestamp` (`timestamp`)<span style="color:red">\*</span> Timestamp of the transaction, in UTC.
-* `end_user_id` (`string`)<span style="color:red">\*</span>  Unique identifier for the end user (i.e. your customer or applicant) who generated this transaction
+* `description` (`string`)<span style={{color: 'red'}}>*</span> Transaction description.
+* `amount` (`float`)<span style={{color: 'red'}}>*</span> Transaction amount. We expect account inflows (credits) to be positive, account outflows (debits) to be negative. <span style={{color: 'red'}}>For transactions pulled with Plaid, please flip the amount sign for all transactions.</span>
+* `currency` (`string`)<span style={{color: 'red'}}>*</span> 3 letter ISO code for currency, e.g., `USD`
+* `timestamp` (`timestamp`)<span style={{color: 'red'}}>*</span> Timestamp of the transaction, in UTC.
+* `end_user_id` (`string`)<span style={{color: 'red'}}>*</span>  Unique identifier for the end user (i.e. your customer or applicant) who generated this transaction
 * `account_id` (`string`)  Unique identifier for the account of the end user that contains the transaction. (Plaid: `transactions.account_id`; Yodlee: `transaction.accountId`; Finicity: `transaction.accountId`; Truelayer: `account_id`)
 * `reference_id` (`string`) Unique identifier for the transaction
 * `transaction_code` (`string`) Refers a general description of the payment method. (Plaid: `payment_channel`; Yodlee: `transaction.type`; Finicity: `transaction.type`; Truelayer: `results.transaction_category`)
 * `mcc_code` (`string`) is the 4 digit [Merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code)
 * `categories_default` (`string` or list of `string`) Can be be used to pass any categories provided with the data. (Plaid: `transactions.category`; Yodlee: `transaction.category`, Finicity: `transaction.categorisation.category`; Truelayer:`results.transaction_classification`)
 
-<font size="2"> <span style="color:red">\*</span> Required</font>
-
 Example request:
 
 ```bash
-curl --location --request POST 'https://app.herondata.io/api/transactions/' \
+curl --location --request POST 'https://app.herondata.io/api/transactions' \
 --header '<your-authorisation>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
