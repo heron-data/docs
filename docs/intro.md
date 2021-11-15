@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
+sidebar_label: Introduction
+title: ''
 slug: /
 ---
-
-# Introduction
 
 <p align="center">
   <a href="https://www.herondata.io">

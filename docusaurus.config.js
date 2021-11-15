@@ -13,8 +13,8 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/icon.png',
-  organizationName: 'heron-data', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'heron-data',
+  projectName: 'docs',
   presets: [
     [
       'redocusaurus',
@@ -63,6 +63,11 @@ const config = {
             to: '/api',
             label: 'API Reference',
             position: 'left'
+          },
+          {
+            to: 'https://status.herondata.io',
+            label: 'Status',
+            position: 'right'
           }
         ]
       },
