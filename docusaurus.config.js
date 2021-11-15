@@ -34,7 +34,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/heron-data/docs',
+          editUrl: 'https://github.com/heron-data/docs/tree/main',
           routeBasePath: '/'
         },
         theme: {
@@ -88,16 +88,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus'
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus'
+                label: 'Blog',
+                to: 'https://www.herondata.io/blog'
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus'
+                href: 'https://twitter.com/herondata'
               }
             ]
           },
@@ -105,16 +101,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: 'https://www.herondata.io/blog'
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/heron-data'
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/herondata'
               }
             ]
           }
