@@ -43,7 +43,6 @@ const config = {
       })
     ]
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -60,11 +59,10 @@ const config = {
             position: 'left',
             label: 'Tutorial'
           },
-          { to: '/api', label: 'API Reference', position: 'left' },
           {
-            href: 'https://github.com/heron-data/docs',
-            label: 'GitHub',
-            position: 'right'
+            to: '/api',
+            label: 'API Reference',
+            position: 'left'
           }
         ]
       },
