@@ -7,7 +7,7 @@ slug: /
 
 <p align="center">
   <a href="https://www.herondata.io">
-    <img width="350" height="90" src='/img/logo.png' alt='herondata' />
+    <img width="350" height="80" src='/img/logo.png' alt='herondata' />
   </a>
 </p>
 <p align="center">
