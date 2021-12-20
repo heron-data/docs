@@ -47,7 +47,7 @@ same algorithm and compare it to the `Heron-Signature` header.
 Here is an example of how to do this in Python and Flask, with the most
 important lines highlighted:
 
-```python {1-3,10,14-20}
+```python {1-3,10,14-21}
 import base64
 import hashlib
 import hmac
@@ -62,7 +62,9 @@ SHARED_SECRET = "sec_..."
 
 def verify_webhook(data, heron_signature):
     digest = hmac.new(
-        SHARED_SECRET, msg=data.encode("utf-8"), digestmod=hashlib.sha256
+        SHARED_SECRET.encode("utf-8"),
+        msg=data.encode("utf-8"),
+        digestmod=hashlib.sha256,
     ).digest()
     computed_hmac = base64.b64encode(digest).decode()
 
