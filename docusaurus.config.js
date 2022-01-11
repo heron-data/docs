@@ -21,7 +21,7 @@ const config = {
       {
         specs: [{
           routePath: '/api',
-          specUrl: 'https://app.herondata.io/swagger/',
+          specUrl: process.env.SPEC_URL,
           layout: {
             title: 'API Reference'
           }
