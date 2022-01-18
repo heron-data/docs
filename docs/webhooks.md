@@ -4,11 +4,6 @@ sidebar_position: 8
 
 # Webhooks
 
-:::caution
-Our webhook calls have a timeout of 10 seconds, so please ensure you send
-back a `200` response within that time
-:::
-
 We can send notifications about the progress of certain async processes to a
 URL of your choice. If you would like us to configure a webhook for a
 particular topic, please contact us.
@@ -44,42 +39,38 @@ payload.
 To verify the webhook was sent by us, calculate the digital signature using the
 same algorithm and compare it to the `Heron-Signature` header.
 
-Here is an example of how to do this in Python and Flask, with the most
-important lines highlighted:
+Here is an example of how to calculate the signature in Python:
 
-```python {1-3,10,14-21}
+```py
 import base64
 import hashlib
 import hmac
+import json
 
-from flask import Flask, abort, request
+secret = "sec_..." # shared secret, *not* your API credentials
+data = {"topic": "end_user.processed", ...}
 
-app = Flask(__name__)
+message = json.dumps(data, separators=(",", ":"))
 
-# shared secret between heron and you, *not* your API credentials
-SHARED_SECRET = "sec_..."
+dig = hmac.new(
+    secret.encode("utf-8"),
+    msg=message.encode("utf-8"),
+    digestmod=hashlib.sha256,
+).digest()
 
+signature = base64.b64encode(dig).decode()
+```
 
-def verify_webhook(data, heron_signature):
-    digest = hmac.new(
-        SHARED_SECRET.encode("utf-8"),
-        msg=data.encode("utf-8"),
-        digestmod=hashlib.sha256,
-    ).digest()
-    computed_hmac = base64.b64encode(digest).decode()
+And in JavaScript (Node):
 
-    return hmac.compare_digest(computed_hmac, heron_signature)
+```js
+const crypto = require('crypto')
 
+const secret = 'sec_...'
+const data = {"topic": "end_user.processed", ...}
 
-@app.route("/webhook", methods=["POST"])
-def handle_webhook():
-    data = request.get_data()
-
-    if not verify_webhook(data, request.headers.get("Heron-Signature")):
-        abort(401)
-
-    # process webhook payload
-    # ...
-
-    return ("", 200)
+const signature = crypto
+  .createHmac('sha256', secret)
+  .update(JSON.stringify(data))
+  .digest('base64')
 ```
