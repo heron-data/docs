@@ -25,10 +25,14 @@ This is an example structure of our webhooks:
 
 Where:
 
-* `topic` is the event which triggered the webhook
-* `created`is the UTC datetime when the webhook was sent, in ISO format
-* `data` contains the object to which this event refers to
-* `meta` (optional) contains further information about the event
+* `topic` is the topic of this webhook in the format `<resource>.<event>`. Currently we support webhooks for the following topics:
+    * `end_user.processed`
+    * `end_user.reviewed`
+    * `end_user.transactions_updated`
+
+* `created` is the UTC datetime when the webhook was sent, in ISO format.
+* `data` contains the data of the resource which relates to this event.
+* `meta` (optional) contains further information about the event.
 
 ## Verification
 
