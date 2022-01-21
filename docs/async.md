@@ -23,7 +23,7 @@ This process is explained below.
    request with `status` `"ready"` to indicate that processing
    should begin.
 1. When we're done processing, we will notify you with a
-   [webhook](https://docs.herondata.io/api_webhooks/) with topic
+   [webhook](https://docs.herondata.io/webhooks/) with topic
    `end_user.processed` and the end user id.
 1. Send a [`GET
    transactions?end_user_id=myenduser`](https://app.herondata.io/docs#/Transactions/get_api_transactions)
