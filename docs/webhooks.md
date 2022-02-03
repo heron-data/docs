@@ -26,9 +26,9 @@ This is an example structure of our webhooks:
 Where:
 
 * `topic` is the topic of this webhook in the format `<resource>.<event>`. Currently we support webhooks for the following topics:
-    * `end_user.processed`
-    * `end_user.reviewed`
-    * `end_user.transactions_updated`
+    * `end_user.processed`, triggered when asynchronous automated processing of an end user has finished. Processing is started after the EndUser status is set to "ready".
+    * `end_user.reviewed`, triggered when an underwriter / Heron has manually reviewed a company and set the EndUser status to "reviewed"
+    * `end_user.transactions_updated`, triggered within 10 minutes of the last change on transactions for a given end user (e.g. after feedback on category).
 
 * `created` is the UTC datetime when the webhook was sent, in ISO format.
 * `data` contains the data of the resource which relates to this event.
