@@ -12,8 +12,7 @@ For more technical details, see our [API Reference](/api)
 
 :::warning
 We recommend batching transactions to a maximum of 1,000 per `POST` request
-to avoid timeouts. For instructions on how to batch transactions and get
-enrichments across batches, see [Async Flow](/async).
+to avoid timeouts. For optimal merchant enrichment in a sync use case, please batch to a maximum of 249 transactions. For instructions on how to batch transactions and get enrichments across batches, see [Async Flow](/async).
 :::
 
 You can `POST` transactions to the `/transactions` endpoint, where the body of
