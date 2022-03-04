@@ -14,44 +14,15 @@ slug: /
     <a href="https://www.herondata.io" target="_blank" rel="noopener noreferrer">Website</a> | <a href="/api">OpenAPI Reference</a> | <a href="https://github.com/heron-data/docs" target="_blank" rel="noopener noreferrer">Contribute</a> | <a href="https://pypi.org/project/heron-data/" target="_blank" rel="noopener noreferrer">Python Client</a>
 </p>
 
-Heron Data cleans, enriches and labels your bank transaction data. We do this
-by offering you cleaned descriptions, enrichment with merchants, categories
-(according to labels you define) and other features we calculate.
+We clean, enrich and categorize bank transaction data to power your most important products.
 
-## What we offer
+### Use cases
 
-**General Features**: *Available out-of-the-box*
+- **SMB Lending**: we categorize bank data into labels which we then use to provide you with financial insights and help you underwrite companies faster. You can use our API and display the output in your internal systems or use our dashboard.
+- **Transaction Feed**: we return canonical merchants with a URL, icon and logo to display in a beautiful transaction feed.
 
-* **Merchant** - canonical merchant name, URL, logo, icon and Merchant Category Codes
-* **Clean description** - the most relevant part of the description string
-* **Recurrency** - whether a transaction is recurring vs. one-off
-* **Intra-Account Transfers** - feature indicating transactions with corresponding inflows/outflows
+### Questions?
 
-**Custom Features**: *Contact Heron Data to define category labels that work for you*
-
-* **Categorisation** - our approach combines a variety of heuristics, machine learning, and NLP approaches for labelling
-* **Feedback** - continually improve your model by providing feedback
-
-## How we deliver it
-
-Enrichment is accessed via our [API](/api).
- 
-For the full feature set, response times are generally below 30 secs for
-batches of 1k transactions
-
-For certain use cases that require very high accuracy and coverage, we offer
-asynchronous labelling services that include manual review steps. This is
-appropriate for some SME lending settings, or the creation of a ground-truth
-data set for ML applications. Contact us for more info!
-
-## Where can I get bank data from?
-
-Our customers access bank transaction data either through an third-party
-provider (e.g., Plaid, Truelayer) or themselves generate bank transaction data
-(e.g. by issuing a card or hosting a checking account). While we do not offer
-the direct bank connection, we have deep expertise in this area and can help
-you get set up with a provider. 
-
-## Need more info?
-Chat with us at `hello@herondata.io` or book a call with us
+Have a look at our comprehensive [FAQs](/faqs) or email us at
+`hello@herondata.io`. If you want a product demo, book a call with us
 [here](https://calendly.com/jamieherondata)!

@@ -37,8 +37,8 @@ Where:
 ## Verification
 
 We send a `Heron-Signature` header in every webhook request. This header is a
-base64-encoded HMAC SHA256 digest of your shared secret and the webhook's
-payload.
+base64-encoded HMAC SHA256 digest of your shared secret (*not* your API
+password) and the webhook's payload.
 
 To verify the webhook was sent by us, calculate the digital signature using the
 same algorithm and compare it to the `Heron-Signature` header.
@@ -51,7 +51,7 @@ import hashlib
 import hmac
 import json
 
-secret = "sec_..." # shared secret, *not* your API credentials
+secret = "sec_..." # shared secret, *not* API password
 data = {"topic": "end_user.processed", ...}
 
 message = json.dumps(data, separators=(",", ":"))
@@ -70,7 +70,7 @@ And in JavaScript (Node):
 ```js
 const crypto = require('crypto')
 
-const secret = 'sec_...'
+const secret = 'sec_...' // shared secret, *not* API password
 const data = {"topic": "end_user.processed", ...}
 
 const signature = crypto

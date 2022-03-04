@@ -65,6 +65,11 @@ const config = {
             position: 'left'
           },
           {
+            to: '/faqs',
+            label: 'FAQs',
+            position: 'left'
+          },
+          {
             to: 'https://status.herondata.io',
             label: 'Status',
             position: 'right'
