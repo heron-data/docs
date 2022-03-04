@@ -24,6 +24,5 @@ We clean, enrich and categorize bank transaction data to power your most importa
 
 ### Questions?
 
-Have a look at our comprehensive [FAQs](/faqs) or email us at
-`hello@herondata.io`. If you want a product demo, book a call with us
-[here](https://calendly.com/jamieherondata)!
+Have a look at our [FAQs](/faqs) or email us at `hello@herondata.io`. If you
+want a product demo, [book a call with us](https://www.herondata.io/book-a-demo)!

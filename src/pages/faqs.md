@@ -39,5 +39,15 @@ provider (e.g., Plaid, Truelayer) or themselves generate bank transaction data
 the direct bank connection, we have deep expertise in this area and can help
 you get set up with a provider.
 
+### How secure is my data?
+
+We are AICPA SOC 2 certified and registered with the UK ICO under registration
+number ZA757776. Data security and privacy is very important to us, so we
+adhere to GDPR regulations and other security best-practices when processing data.
+
 ## API Integration
 
+### Do you have separate testing and production environments?
+
+Yes. We can provide you with two different sets of credentials so you can use
+one for testing/integrating and another for your production environment.
