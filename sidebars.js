@@ -12,6 +12,7 @@
 // @ts-check
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+
 const sidebars = {
   mySidebar: [
     'intro',
@@ -20,6 +21,9 @@ const sidebars = {
       type: 'category',
       label: 'Use Cases',
       collapsed: false,
+      // link: {
+      //   type: 'generated-index'
+      // },
       items: [
         'use-cases/smb-lending',
         'use-cases/transaction-feed',

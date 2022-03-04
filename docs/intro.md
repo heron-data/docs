@@ -18,8 +18,9 @@ We clean, enrich and categorize bank transaction data to power your most importa
 
 ### Use cases
 
-- **SMB Lending**: we categorize bank data into labels which we then use to provide you with financial insights and help you underwrite companies faster. You can use our API and display the output in your internal systems or use our dashboard.
-- **Transaction Feed**: we return canonical merchants with a URL, icon and logo to display in a beautiful transaction feed.
+- **[SMB Lending](/use-cases/smb-lending)**: we categorize bank data into labels which we then use to provide you with financial insights and help you underwrite companies faster. You can use our API and display the output in your internal systems or use our dashboard.
+- **[Transaction Feed](/use-cases/transaction-feed)**: we return canonical merchants with a URL, icon and logo to display in a beautiful transaction feed.
+- **[Merchant Locking](/use-cases/merchant-locking)**: using unique merchant hashes we provide you can lock debit cards to particular merchants.
 
 ### Questions?
 
