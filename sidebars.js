@@ -20,6 +20,9 @@ const sidebars = {
       type: 'category',
       label: 'Use Cases',
       collapsed: false,
+      link: {
+        type: 'generated-index'
+      },
       items: [
         'use-cases/smb-lending',
         'use-cases/transaction-feed',
