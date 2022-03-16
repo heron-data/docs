@@ -11,27 +11,36 @@ slug: /
   </a>
 </p>
 <p align="center">
-    <a href="https://www.herondata.io" target="_blank" rel="noopener noreferrer">Website</a> | <a href="/api">OpenAPI Reference</a> | <a href="https://pypi.org/project/heron-data/" target="_blank" rel="noopener noreferrer">Python Client</a>
+    <a href="https://www.herondata.io" target="_blank" rel="noopener noreferrer">Website</a> | <a href="/api">OpenAPI Reference</a> | <a href="https://pypi.org/project/heron-data/" target="_blank" rel="noopener noreferrer">Python Client</a> | <a href="https://github.com/heron-data/docs" target="_blank" rel="noopener noreferrer">Contribute to Docs</a> 
 </p>
 
-Heron Data cleans, enriches and labels your bank transaction data. We do this
-by offering you cleaned descriptions, enrichment with merchants, categories
-(according to labels you define) and other features we calculate.
+Heron Data will help you unlock the full value of financial transaction data with minimal work. 
 
-## What we offer
+## What Heron enables you to do
 
-**General Features**: *Available out-of-the-box*
+Heron Data serves a range of use cases. To get started with the tutorial, pick the use case that most applies to you!
 
-* **Merchant** - canonical merchant name, URL, logo, icon and Merchant Category Codes
-* **Clean description** - the most relevant part of the description string
-* **Recurrency** - whether a transaction is recurring vs. one-off
-* **Intra-Account Transfers** - feature indicating transactions with corresponding inflows/outflows
+**Core Use Cases**:
 
-**Custom Features**: *Contact us to define category labels that work for you*
+- :star: &nbsp [As a developer or PM, I want my transaction feed to look beautiful](use_cases/beautiful_transactions)
 
-* **Categorization** - our approach combines a variety of heuristics, machine learning, and NLP approaches for labelling
-* **Feedback** - continually improve your model by providing feedback
+- :bank: &nbsp [As a developer, I want to implement Heron Data for SMB underwriting](use_cases/smb_underwriting)
 
-## Need more info?
-Chat with us at `hello@herondata.io` or [book a
-call](https://calendly.com/jamieherondata)!
+- :chart_with_upwards_trend: &nbsp [As a PM, I want to give financial insights to an SMB or start-up](use_cases/smb_analytics)
+
+- :lock: &nbsp [As a developer or PM, I want to lock cards to merchants](use_cases/merchant_lock)
+
+**Other Use Cases:**
+
+We support other use cases, please contact us directly for more information:
+- :deciduous_tree: &nbsp As a PM, I want to estimate a consumer's carbon footprint from their bank data
+- :black_joker: &nbsp As a PM, I want to understand a consumer's gambling behaviours
+- :information_desk_person: &nbsp As an underwriter, I want to understand a consumer's risk profile
+
+
+## Need more info or help?
+
+- **E-mail:** E-mail us at hello@herondata.io (if you're not yet a customer) or help@herondata.io (for customers)
+- **Slack:** Ask the main Heron contact within your organisation for access to the shared Slack!
+- **Book a call:** For existing customers, book a call [here](https://calendly.com/johannes-26). If you're not yet a customer, talk to us [here](https://calendly.com/jamieherondata)!
+

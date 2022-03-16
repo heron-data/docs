@@ -5,8 +5,7 @@ sidebar_position: 8
 # Webhooks
 
 We can send notifications about the progress of certain async processes to a
-URL of your choice. If you would like us to configure a webhook for a
-particular topic, please contact us.
+URL of your choice. You can configure the webhook URL in the [Heron dashboard](https://dashboard.herondata.io/).
 
 This is an example structure of our webhooks:
 
