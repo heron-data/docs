@@ -131,7 +131,7 @@ Which one you choose to display back depends on your use case. Note that `paymen
 If you do not currently receive categories but would like to receive them, please contact Heron!
 :::
 
-- If categories are enabled for you, you will receive them back as a dictionary in the transactions object [see here](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get). You can display back the `label` to your customer, or assign a static logo to each category instead.
+- If categories are enabled for you, you will receive them back as a dictionary in the transactions object ([see here](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get)). You can display back the `label` to your customer, or assign a static logo to each category instead.
 
 - For more use cases around business data categories, please follow the [SMB Analytics Tutorial](use-cases/smb-analytics).
 
