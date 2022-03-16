@@ -22,13 +22,13 @@ To get started with the tutorial, pick the use case that most applies to you!
 
 **Core use cases**:
 
-- :star: &nbsp [As a developer or PM, I want my transaction feed to look beautiful](use_cases/beautiful_transactions)
+- :star: &nbsp [As a developer or PM, I want my transaction feed to look beautiful](use-cases/beautiful-transactions)
 
-- :bank: &nbsp [As a developer, I want to implement Heron Data for SMB underwriting](use_cases/smb_underwriting)
+- :bank: &nbsp [As a developer, I want to implement Heron Data for SMB underwriting](use-cases/smb-underwriting)
 
-- :chart_with_upwards_trend: &nbsp [As a PM, I want to give financial insights to an SMB or Start-up](use_cases/smb_analytics)
+- :chart_with_upwards_trend: &nbsp [As a PM, I want to give financial insights to an SMB or Start-up](use-cases/smb-analytics)
 
-- :lock: &nbsp [As a developer or PM, I want to lock cards to merchants](use_cases/merchant_lock)
+- :lock: &nbsp [As a developer or PM, I want to lock cards to merchants](use-cases/merchant-locking)
 
 **Other use cases**:
 

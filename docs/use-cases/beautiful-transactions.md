@@ -17,7 +17,7 @@ This helps with an application interface that builds trust and engagement with c
 
 ---
 
-If you have bank transaction data for a consumer, jump [here](beautiful_transactions#enrich-consumer-bank-data).
+If you have bank transaction data for a consumer, jump [here](beautiful-transactions#enrich-consumer-bank-data).
 
 If you have bank transaction data for a business proceed with the next section!
 
@@ -25,7 +25,8 @@ If you have bank transaction data for a business proceed with the next section!
 
 # Enrich Business Bank data
 
-Heron Data is optimised for high coverage accuracy on SMB merchants and categories. Follow this flow to achieve optimal outcomes. 
+Heron Data is optimized for high coverage accuracy on SMB merchants and
+categories. Follow this flow to achieve optimal outcomes. 
 
 ### Create an end user and enrich transactions
 
@@ -40,7 +41,7 @@ Heron Data is optimised for high coverage accuracy on SMB merchants and categori
         3. [Ocrolus Report](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1ocrulus/post)
 3. **Process Transactions:** When you are done sending us transactions for a company, please send a PUT `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/put), indicating that the end_user is `ready` for processing. 
 4. **Listen to webhook:** We will notify you via a webhook when the `end_user_id` is `processed` and available for you to retrieve. You can configure your webhook in the [dashboard](https://dashboard.herondata.io/). An example payload webhook is here:
-    
+
     ```jsx
     {
     	"topic": "end_user.processed",
@@ -53,61 +54,63 @@ Heron Data is optimised for high coverage accuracy on SMB merchants and categori
     	"meta": null
     }
     ```
-    
+
 5. **Get transactions**: Once you have received the webhook, you can send a [GET `/transactions` request](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get) to retrieve the enriched data. Most customers use the `end_user_id` parameter to ensure they only pull transactions for the `end_user_id` that was just enriched.
     1. **Note**: If you getting transactions for a company that you’ve already sent to Heron before, you can use the `last_updated_min` filter to only get transactions where labels have changed since the value of the filter.
 
-You now have enriched data for a given company. Proceed by looking at [best practises to display back information](beautiful_transactions#how-to-display-back-the-enriched-transactions)!
+You now have enriched data for a given company. Proceed by looking at [best practises to display back information](beautiful-transactions#how-to-display-back-the-enriched-transactions)!
 
-# Enrich Consumer Bank Data
+## Enrich consumer bank data
 
 1. **Post Transactions:** Send POST `/transactions` [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/post). Make sure that the `end_user_id` in the payload matches a canonical identifier for the consumer from your systems.
     1. For this use case, please **limit batch sizes to 249 transactions maximum.**
     2. Note that in the payload, only `amount` and `description` are required. For best results, we recommend also sending `timestamp` or `date` and `end_user_id`
 2. **Parse response:** In the response to this `POST` request, you will receive back all items you need for a beautiful transaction feed!
 
-```jsx
-{ "transactions": [
-{...,
-"description_clean": "cleaner_description",
-"merchant": {
-                "heron_id": "mrc_nF5uQ1LPBJn5RErH8QGeTH",
+```json
+{
+    "transactions": [
+        {
+            ...
+            "description_clean": "cleaner_description",
+            "merchant": {
+                "heron_id": "mrc_nF5uQ1LPBJn5REabCQGeTH",
                 "name": "merchant_name",
                 "url": "https://some_merchant_url.com",
                 "logo_url": "https://url_to_logo.com/merchant_logo.png",
                 "icon_url": "https://url_to_icon.com/merchant_icon.svg"
-},
-"payment_processor": {
-                "heron_id": "mrc_98gzPbisCPwDkeUdpmpZ3h",
+            },
+            "payment_processor": {
+                "heron_id": "mrc_98gzPbisCPwDkeU123pZ3h",
                 "name": "Square",
                 "url": "https://squareup.com/us/en"
             }
-]
+        }
+    ]
 }
 ```
 
-# How to display back the enriched transactions
+## How to display the enriched transactions
 
-**Description/Name**
+**Description/name**
 
 - You should display back the `merchant.name` where available.
 - If no `merchant.name`is available, display back either the `payment_processor` or the `description_clean`.
     - `payment_processor` is the name of the company that processed the payment, like Square, Stripe, Shopify, etc.
     - `description_clean` will always be a substring of the `description`, but without information about payment methods, store numbers, transaction dates, amounts, etc.
-    
 
----
+:::info Example
 
-:bulb: **Example**: If you send a `description` like `SQ* 01203433383 ESPRESSO CIELO SANTA MONICA CA`, you receive back:
+If you send a description like `SQ* 01203433383 ESPRESSO CIELO SANTA MONICA CA`, you receive back:
     
     "payment_processor": "Square",    
     "description_clean": "Espresso Cielo Santa Monica"
-    
-Which one you choose to display back depends on your use case. Note that `payment_processor` will always have a logo/icon attached.
-    
----
 
-**Logo/Icon**
+Which one you choose to display back depends on your use case. Note that `payment_processor` will always have a logo/icon attached.
+
+:::
+
+**Logo/icon**
 
 - You will receive back either a `logo_url`, an `icon_url` or both
 - The logo is generally rectangular, and the icon is a square
@@ -122,17 +125,15 @@ Which one you choose to display back depends on your use case. Note that `paymen
     - Allow your users to choose a custom category for a specific merchant, based on that merchant's `heron_id`.
     - Show your users all spend with one merchant by aggregating all spend on one merchant `heron_id`.
 
-[*Optional*] **Categories**
+**Categories [optional]**
 
----
-
-:bulb: &nbsp If you do not currently receive categories but would like to receive them, please contact Heron!
-
----
+:::tip
+If you do not currently receive categories but would like to receive them, please contact Heron!
+:::
 
 - If categories are enabled for you, you will receive them back as a dictionary with the format below. You can display back the `label` to your customer, or assign a static logo to each category instead.
 
-- For more use cases around buiness data categories, please follow the [SMB Analytics Tutorial](use_cases/smb_analytics).
+- For more use cases around buiness data categories, please follow the [SMB Analytics Tutorial](use-cases/smb-analytics).
 
 ## Feedback
 

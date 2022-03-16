@@ -15,15 +15,15 @@ The key outcomes we help our customers achieve are:
 
 This helps our customers drive retention and engagement for their users.
 
----
-
-:running: &nbsp For this use case, you may have specific requirements for low latency. We are able to process your transactions in a priority queue to ensure we delivery the latency needed. Please contact your Heron representative to find out more.
-
----
+:::info
+If you have specific requirements for low latency, we are able to process your
+transactions in a priority queue to ensure we deliver the latency needed.
+Please contact your Heron representative to find out more.
+:::
 
 ## Get started
 
-Most customers that use Heron for this use case begin by enriching their transaction feed first. To get started, please follow the [Enrich Business Bank Data](beautiful_transactions#enrich-business-bank-data) section of the [Beautiful Transactions](beautiful_transactions) section first
+Most customers that use Heron for this use case begin by enriching their transaction feed first. To get started, please follow the [Enrich Business Bank Data](beautiful-transactions#enrich-business-bank-data) section of the [Beautiful Transactions](beautiful-transactions) section first
 
 ## How to use the output
 
@@ -40,13 +40,15 @@ After following the tutorial on how to enrich business bank data and make the tr
 - If the annotator on the category label is either `heuristics` or `predicted`, your model is not fine-tuned for reliable confidences. If you still want to use confidences, please contact Heron.
 
 ```json
-"categories":[
-	{
-    "annotator": "reconciled",
-    "confidence": 0.91,
-    "heron_id": "ctg_4q5tDaLi66h3EAWYTYDQYC",
-    "label": "Rent",
-    "model_version": "0f74d346-10f8-454d-abb2-5980674e07b1"
-	}
-]
+{
+    "categories": [
+        {
+            "annotator": "reconciled",
+            "confidence": 0.91,
+            "heron_id": "ctg_4q5tDaLi66h3EAWYTY11YC",
+            "label": "Rent",
+            "model_version": "0f74d346-10f8-454d-abc2-5980674e07b1"
+        }
+    ]
+}
 ```

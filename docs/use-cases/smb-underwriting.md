@@ -29,48 +29,37 @@ We will begin by enriching the bank data, and then looking at how it can be used
         2. [Plaid - Transactions Report](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1transactions/post)
         3. [Ocrolus Report](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1ocrulus/post)
 3. **Process Transactions:** When you are done sending us transactions for a company, please send a PUT `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/put), indicating that the end_user is `ready` for processing. 
-4. **Listen to webhook:** We will notify you via a webhook when the `end_user_id` is `processed`, and available for you to retrieve. You can configure your webhook in the [dashboard](https://dashboard.herondata.io/). An example payload webhook is here:
-    
-    ```jsx
-    {
-    	"topic": "end_user.processed",
-    	"created": "2021-05-20T09:23:53+00:00",
-    	"data": {
-    	"heron_id": "eus_Eqio3Y4dhyNiMphrXwG58p",
-    	"end_user_id": "myenduser",
-    	"status": "processed"
-    	},
-    	"meta": null
-    }
-    ```
-    
+4. **Listen to webhook:** We will notify you via a [webhook](/webhooks) when the `end_user_id` is `processed`, and available for you to retrieve. You can configure your webhook in the [dashboard](https://dashboard.herondata.io/).
 5. **Get transactions**: Once you have received the webhook, you can send a GET `/transactions` [request](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get) to retrieve the enriched data. Most customers use the `end_user_id` parameter to ensure they only pull transactions for the `end_user_id` that was just enriched.
     1. **Note**: If youa get transactions for a company that you’ve already sent to Heron before, you can use the `last_updated_min` filter to only get transactions where labels have changed since the last time you send and fetched transactions.
 
 You now have enriched data for a given company. Depending on your use case, you may just want to display this enriched data back to your data science team, or use it in other internal applications.
 
----
-
-💡 &nbsp **Note on webhooks:** From the Heron dashboard, underwriters are able to request a review for a company when they believe that there are errors with Heron’s classification. When the review is finalised, we will trigger a `reviewed` webhook similar to the example in 4). If your organisation only consumes Heron’s output via the dashboard, you don’t have to do anything else. If you pull raw data into your systems, please make sure that you repeat step 5) after receiving a webhook with the status `reviewed.`
-
----
+:::info Note on webhooks
+From the Heron dashboard, underwriters are able to request a review for a
+company when they believe that there are errors with Heron’s classification.
+When the review is finalised, we will trigger a `reviewed` webhook similar to
+the example in 4). If your organisation only consumes Heron’s output via the
+dashboard, you don’t have to do anything else. If you pull raw data into your
+systems, please make sure that you repeat step 5) after receiving a webhook
+with the status `reviewed.`
+:::
 
 ## Inspect company using the dashboard
 
 *This section only describes the dashboard at a very high-level. To get more detailed information, please contact Heron Data for an onboarding session*
 
-
 During your integration, you can use the [dashboard](https://dashboard.herondata.io/) to make sure that all steps work as expected.
 
 1. Navigate to the `Companies` page. This will give you an overview over the companies (i.e., `end_user`) you have created.
 
-![Dashboard Companies Page](/img/dashboard_companies_page.png)
+![Companies Page](/img/dashboard_companies_page.png)
 
 2. You can see the status of the company in the `status` column of the main table. To inspect the transactions uploaded, press `transactions` on the right, then `view` transactions.
 3. To get a sense of the possible visualisations on top of the enriched data, navigate to `Summary` for one of the companies. Here, you will see Revenue, P&L, risk flags and other financial metrics about the company.
 4. To verify all possible categories that your model may attach to transactions, navigate to the `Categories` tab. You can inspect all labels there.
 
-![Dashboard Categories Page](/img/dashboard_categories_page.png)
+![Categories Page](/img/dashboard_categories_page.png)
 
 ## Retrieve aggregate metrics on a company
 
@@ -87,14 +76,14 @@ To get historical time series, (e.g. `Revenue` over time for each month), send a
 3. Whether you want to pivot by `merchant`, `category` or both
 4. If you want to see only certain categories, filter by `category_heron_ids`
 
----
+:::info Example
+To get the monthly revenue for end_user_id `12345` you would send a `GET` request to the following: 
+```
+https://app.herondata.io/api/end_users/statistics?end_user_id=12345&group_by=category&date_granularity=month&category_heron_ids={category_heron_id_for_revenue}
+```
+:::
 
-:bulb: &nbsp Example: To get the monthly revenue for end_user_id `12345` you would send a GET request to the following url: 
-`https://app.herondata.io/api/end_users/statistics?end_user_id=12345&group_by=category&date_granularity=month&category_heron_ids={category_heron_id_for_revenue}`
-
----
-
-### Get forecasts
+### Get forecast
 
 *Note: Forecasts are currently in beta*
 

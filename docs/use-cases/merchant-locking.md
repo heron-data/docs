@@ -17,7 +17,7 @@ An overview of the flow is here:
 
 ![Merchant Lock Schema](/img/merchant_lock_schema.png)
 
-## Merchant Lock Flow
+## Locking flow
 
 1. First, you have to enable your user to pick a canonical Heron merchant to lock a card to. You can do this by offering a free-form “search merchant” text field to the customer that sends GET `/merchants/search` [requests](https://docs.herondata.io/api#tag/Merchants/paths/~1api~1merchants~1search/get). You can populate possible results you show to the user from the results you get from our endpoint. 
 2. Once the customer has confirmed a merchant, store the `heron_id` of that merchant as the whitelisted merchant for that card.
