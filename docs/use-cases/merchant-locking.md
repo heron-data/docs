@@ -1,7 +1,8 @@
 ---
 sidebar_position: 4
 ---
-# Lock cards to merchants
+
+# Merchant Locking
 
 ## Overview
 

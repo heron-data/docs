@@ -1,7 +1,8 @@
 ---
 sidebar_position: 2
 ---
-# Beautiful Transactions
+
+# Beautiful Transaction Feed
 
 ## Overview
 
