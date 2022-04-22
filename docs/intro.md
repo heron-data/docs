@@ -40,6 +40,6 @@ Please contact us for more information on these:
 
 ## Need more info?
 
-- **Email:** `hello@herondata.io` (new customers) or `help@herondata.io` (existing customers)
+- **Email:** `hello@herondata.io` (new customers) or `support@herondata.io` (existing customers)
 - **Slack:** ask the main Heron contact within your organization for access to the shared Slack!
 - **Book a call:** for existing customers, [book a call](https://calendly.com/johannes-26). If you're not yet a customer, [talk to us](https://calendly.com/jamieherondata)!
