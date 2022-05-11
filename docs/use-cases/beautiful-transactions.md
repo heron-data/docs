@@ -47,9 +47,11 @@ categories. Follow this flow to achieve optimal outcomes.
 You now have enriched data for a given company. Proceed by looking at [best practises to display back information](beautiful-transactions#how-to-display-back-the-enriched-transactions)!
 
 ## Enrich consumer data
-
+:::caution 
+**For this use case, please limit batch sizes to 249 transactions maximum.**
+:::
 1. **Post Transactions:** Send POST `/transactions` [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/post). Make sure that the `end_user_id` in the payload matches a canonical identifier for the consumer from your systems.
-    1. For this use case, please **limit batch sizes to 249 transactions maximum.**
+    1. For this use case, please ****
     2. Note that in the payload, only `amount` and `description` are required. For best results, we recommend also sending `timestamp` or `date` and `end_user_id`
 2. **Parse response:** In the response to this `POST` request, you will receive back all items you need for a beautiful transaction feed!
 
