@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+sidebar_label: Plaid
 ---
 
-# How to integrate via Plaid
+# Plaid Integration
 
 To integrate with Heron Data using Plaid, you’ll need to configure an integration in the Heron and Plaid Dashboards.
 
