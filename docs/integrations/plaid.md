@@ -36,13 +36,21 @@ Before following this guide, you will need:
 
     ![Heron Dashboard Integrations List](/img/heron_dashboard_integrations_plaid.png)
 
-7. In your code, set the `webhook` parameter of **[`/link/token/create`](https://plaid.com/docs/api/tokens/#linktokencreate)** as documented in [Configuring Link for transaction webhooks](https://plaid.com/docs/transactions/webhooks/#configuring-link-for-transactions-webhooks) to the **webhook URL**
-8. In your code, after calling **[`/item/public_token/exchange`](https://plaid.com/docs/api/tokens/#itempublic_tokenexchange)** send the resulting Plaid `item_id` and `access_token`, along with your `end_user_id` (unique key for your customer) as a `POST` request to the **link URL**.
+7. In your code, set the `webhook` parameter of **[`/link/token/create`](https://plaid.com/docs/api/tokens/#linktokencreate)** to the **webhook URL**.
+8. In your code, after calling
+   **[`/item/public_token/exchange`](https://plaid.com/docs/api/tokens/#itempublic_tokenexchange)**
+   send the resulting Plaid `item_id` and `access_token`, along with your
+   `end_user_id` as a `POST` request to the **link URL**, [documented
+   here](https://docs.herondata.io/api#tag/Integrations/paths/~1api~1integrations~1{heron_id}~1links/post).
 
 ## Final result
 
-This diagram illustrates the final flow of data between your customers, your Plaid Link flow, Plaid and Heron Data. The blue lines represent the code changes explained in the previous section.
+This diagram illustrates the final flow of data between your customers, your
+Plaid Link flow, Plaid and Heron Data. The blue lines represent the code
+changes explained in the previous section.
 
 ![Plaid Integration Diagram](/img/plaid_integration_diagram.png)
 
-Whenever Plaid has new transactions for this Item, we will retrieve, store and process them. The incremental transactions will be available to consume via our API or our dashboard.
+Whenever Plaid has new transactions for this Item, we will retrieve, store and
+process them. The incremental transactions will be available to consume via our
+API or our dashboard.
