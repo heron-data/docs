@@ -4,20 +4,33 @@ sidebar_position: 2
 
 # Authentication
 
-Upon onboarding, you will receive a set of log-in credentials consisting of a
-`username`, `password` and `api_key`. If you haven’t received these, please
-speak to your Heron rep, or e-mail us at hello@herondata.io.
+## Dashboard
 
-:::tip
-If you want to try out our merchant capabilities without credentials, visit our [try page](https://www.herondata.io/try).
+Upon onboarding, you will receive a set of dashboard credentials consisting of a
+`username` (usually your email) and `password` to your email address. You can
+use these to log into [dashboard.herondata.io](https://dashboard.herondata.io/).
+
+If you haven't received access, please speak to your Heron rep, or email us at
+hello@herondata.io.
+
+To reset your password, go to the [Forgot your
+password](https://dashboard.herondata.io/auth/forgot) page. You will receive an
+email with instructions.
+
+:::info
+If you want to try our merchant capabilities without credentials, visit our [try page](https://www.herondata.io/try).
 :::
 
-**API access**
+## API
+
+Once you have used your dashboard credentials to log in, you will be able to
+see your API credentials (`username` and `api_key`) in the dashboard under
+`Settings`.
 
 We use [Basic access
 authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
-This means you should send the base64-encoded version of
-your `username:api_key` in the `Authorization: Basic` header.
+This means you should send the base64-encoded version of your
+`username:api_key` in the `Authorization: Basic` header.
 
 Most modern HTTP libraries handle the encoding for you, but here's a
 step-by-step example for clarity:
@@ -35,20 +48,11 @@ step-by-step example for clarity:
     --header 'Authorization: Basic <base-64-encoded-token>'
     ```
 
-**Dashboard access**
+## Development vs Production
 
-To log in to the dashboard, please go to
-[dashboard.herondata.io](http://dashboard.herondata.io) and use the `username`
-and `password` provided to you.
-
-To reset your password, navigate to the `Settings` tab on the left and press
-`Reset`.
-
-**Sandbox vs Production**
-
-We handle sandbox and production environments at the credential level. We will
-issue you with a set of credentials you can use for development purposes during
-your trial / onboarding phase. 
+We handle development and production environments at the credential level. We will
+issue you with a set of dashboard and API credentials you can use for
+development purposes during your trial / onboarding phase.
 
 When you’re ready to move to production, please contact us, and we will issue
 you a set of production credentials.
