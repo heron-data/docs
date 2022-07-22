@@ -40,7 +40,7 @@ Before following this guide, you will need:
    **[`/link/token/create`](https://plaid.com/docs/api/tokens/#linktokencreate)**
    to the **webhook URL**. (Alternatively, if you want to keep your webhook
    handling, forward all Plaid incoming webhooks including headers to the
-   **webhook URL***)
+   **webhook URL**)
 8. In your code, after calling
    **[`/item/public_token/exchange`](https://plaid.com/docs/api/tokens/#itempublic_tokenexchange)**
    send the resulting Plaid `item_id` and `access_token`, along with your
