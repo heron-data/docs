@@ -29,7 +29,8 @@ see your API credentials (`username` and `api_key`) in the dashboard under
 
 We use [Basic access
 authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
-This means you should send the base64-encoded version of your API credentials `username:api_key` in the `Authorization: Basic` header.
+This means you should send the base64-encoded version of your
+`username:api_key` in the `Authorization: Basic` header.
 
 Most modern HTTP libraries handle the encoding for you, but here's a
 step-by-step example for clarity:
@@ -50,8 +51,8 @@ step-by-step example for clarity:
 ## Development vs Production
 
 We handle development and production environments at the credential level. We will
-issue you with a set of dashboard and API credentials you can use for development purposes during
-your trial / onboarding phase.
+issue you with a set of dashboard and API credentials you can use for
+development purposes during your trial / onboarding phase.
 
 When you’re ready to move to production, please contact us, and we will issue
 you a set of production credentials.
