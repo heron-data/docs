@@ -77,3 +77,10 @@ const signature = crypto
   .update(JSON.stringify(data))
   .digest('base64')
 ```
+
+## Slack webhooks integration
+
+If you don't want to build a system for receiving webhooks, we support
+Slack [Incoming Webhooks](https://api.slack.com/messaging/webhooks) URLs when
+you create a webhook. If you do this, you will receive the webhooks as Slack
+messages to the channel you configure.
