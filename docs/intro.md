@@ -11,7 +11,7 @@ slug: /
   </a>
 </p>
 <p align="center">
-    <a href="https://www.herondata.io" target="_blank" rel="noopener noreferrer">Website</a> | <a href="/api">OpenAPI Reference</a> | <a href="https://pypi.org/project/heron-data/" target="_blank" rel="noopener noreferrer">Python Client</a>
+    <a href="https://www.herondata.io" target="_blank" rel="noopener noreferrer">Website</a> | <a href="/api">OpenAPI Reference</a> | <a href="https://pypi.org/project/heron-data/" target="_blank" rel="noopener noreferrer">Python Client</a> | <a href="https://app.herondata.io/swagger" target="_blank" rel="noopener noreferrer">Swagger</a> | <a href="https://dashboard.herondata.io/" target="_blank" rel="noopener noreferrer">Dashboard</a>
 </p>
 
 Heron Data helps you unlock the full value of financial transaction data with minimal work. 
@@ -40,6 +40,6 @@ Please contact us for more information on these:
 
 ## Need more info?
 
-- **Email:** `hello@herondata.io` (new customers) or `support@herondata.io` (existing customers)
-- **Slack:** ask the main Heron contact within your organization for access to the shared Slack!
-- **Book a call:** for existing customers, [book a call](https://calendly.com/johannes-26). If you're not yet a customer, [talk to us](https://calendly.com/jamieherondata)!
+- **Email:** Contact `hello@herondata.io` (new customers) or `support@herondata.io` (existing customers)
+- **Slack:** Ask the main Heron contact within your organization for access to the shared Slack!
+- **Book a call:** For existing customers, [book a call](https://calendly.com/d/d7n-s64-fv4/heron-check-in). If you're not yet a customer, [talk to us](https://calendly.com/jamieherondata)!
