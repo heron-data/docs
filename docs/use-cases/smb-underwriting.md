@@ -25,10 +25,11 @@ We will begin by enriching the bank data, and then looking at how it can be used
     2. **Note:** If you are sending transactions for a company that you’ve already sent to Heron before, skip this step.
 2. **Post Transactions.** Once you have created the end_user, you can start POST’ing transactions for that end_user. Make sure that the `end_user_id` in the payload matches the `end_user_id` you created in 1). You do this by sending POST `/transactions` [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/post).
     1. As noted, please batch to 1000 transactions or fewer
-    2. **Note:** If you receive transactions directly from Plaid or Ocrolus, we allow you to just pass on the json file without any manipulation. This replaces using the `/transactions` endpoint in this step. The endpoints you can use are:
+    2. **Note:** If you receive transactions directly from Plaid, Ocrolus or in PDF, we allow you to just pass on the file without any manipulation. This replaces using the `/transactions` endpoint in this step. The endpoints you can use are:
         1. [Plaid - Assets Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1assets/post) 
         2. [Plaid - Transactions Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1transactions/post)
         3. [Ocrolus Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1ocrolus/post)
+        4. [PDF](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1pdfs~1v1/post)
 3. **Process Transactions:** When you are done sending us transactions for a company, please send a PUT `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/put), indicating that the end_user is `ready` for processing. 
 4. **Listen to webhook:** We will notify you via a [webhook](/webhooks) when the `end_user_id` is `processed`, and available for you to retrieve. You can configure your webhook in the [dashboard](https://dashboard.herondata.io/).
 5. **Get transactions**: Once you have received the webhook, you can send a GET `/end_users/{end_user_id_or_heron_id}/transactions` [request](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1transactions/get) to retrieve the enriched data. 
