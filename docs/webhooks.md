@@ -30,7 +30,7 @@ Where:
     * `end_user.transactions_updated`, this webhook is in the process of being deprecated, please do not subscribe to this webhook topic.
     * `end_user.review_required`, triggered when an end_user violates a rule during process and needs further review.
     * `transactions.deleted`, triggered when transactions are deleted.
-    * `transactions.updated`, triggered within 10 minutes of the last change on transactions for a given end user (e.g. after feedback on category or Heron manual review)
+    * `transactions.updated`, triggered within 10 minutes of the last change on transactions for a given end user (e.g. after feedback on category or Heron manual review).
     * `pdf.processed`, triggered when Heron has successfully processed a PDF document.
     * `pdf.transactions_loaded`, triggered when the transactions from a processed PDF document have been loaded into an end_user_id.
     * `pdf.failed`, triggered when Heron has failed to process a PDF document.
