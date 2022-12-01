@@ -27,7 +27,7 @@ Where:
 * `topic` is the topic of this webhook in the format `<resource>.<event>`. Currently we support webhooks for the following topics:
     * `end_user.processed`, triggered when asynchronous automated processing of an end user has finished. Processing is started after the EndUser status is set to "ready".
     * `end_user.reviewed`, triggered when an underwriter / Heron has manually reviewed a company and set the EndUser status to "reviewed"
-    * `end_user.transactions_updated`, this webhook is in the process of being deprecated, please do not subscribe to this webhook.
+    * `end_user.transactions_updated`, this webhook is in the process of being deprecated, please do not subscribe to this webhook topic.
     * `end_user.review_required`, triggered when an end_user violates a rule during process and needs further review.
     * `transactions.deleted`, triggered when transactions are deleted.
     * `transactions.updated`, triggered within 10 minutes of the last change on transactions for a given end user (e.g. after feedback on category or Heron manual review)
