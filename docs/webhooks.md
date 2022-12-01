@@ -5,7 +5,7 @@ sidebar_position: 5
 # Webhooks
 
 We can send notifications about the progress of certain async processes to a
-URL of your choice. You can configure the webhook URL in the [Heron dashboard](https://dashboard.herondata.io/).
+URL of your choice. You can configure the webhook URL in the [Heron dashboard](https://dashboard.herondata.io/) by navigating to the "Settings" tab on the left menu bar.
 
 This is an example structure of our webhooks:
 
@@ -28,6 +28,12 @@ Where:
     * `end_user.processed`, triggered when asynchronous automated processing of an end user has finished. Processing is started after the EndUser status is set to "ready".
     * `end_user.reviewed`, triggered when an underwriter / Heron has manually reviewed a company and set the EndUser status to "reviewed"
     * `end_user.transactions_updated`, triggered within 10 minutes of the last change on transactions for a given end user (e.g. after feedback on category).
+    * `end_user.review_required`, triggered when an end_user violates a rule during process and needs further review.
+    * `transactions.deleted`, triggered when transactions are deleted.
+    * `transactions.updated`, triggered when Heron has updated transactions for an end_user, for example as the consequence of a manual review.
+    * `pdf.processed`, triggered when Heron has successfully processed a PDF document.
+    * `pdf.transactions_loaded`, triggered when the transactions from a processed PDF document have been loaded into an end_user_id.
+    * `pdf.failed`, triggered when Heron has failed to process a PDF document.
 
 * `created` is the UTC datetime when the webhook was sent, in ISO format.
 * `data` contains the data of the resource which relates to this event.
