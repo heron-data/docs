@@ -64,14 +64,7 @@ const securityHeaders = [
   }
 ]
 
-const moduleExports = {
-  reactStrictMode: true,
-  env: {
-    NEXTAUTH_URL:
-      process.env.NEXTAUTH_URL ||
-      `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` ||
-      'http://localhost:3000'
-  },
+module.exports = {
   async headers () {
     return [
       {
@@ -82,5 +75,3 @@ const moduleExports = {
     ]
   }
 }
-
-module.exports = moduleExports
