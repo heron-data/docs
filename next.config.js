@@ -69,7 +69,7 @@ module.exports = {
     return [
       {
         // Apply these headers to all routes in your application.
-        source: '*',
+        source: '/(.*)',
         headers: securityHeaders
       }
     ]
