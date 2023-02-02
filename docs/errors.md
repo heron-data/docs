@@ -50,6 +50,30 @@ We structure all errors which occur in our application into a JSON object with k
 }
 ```
 
+We have different rate limits per API endpoint and per customer. If you want to
+know what your rate limit is, and how much of it you have remaining, we provide
+response headers for each request you send us indicating this.
+
+* `x-ratelimit-limit`: the number of requests per minute you can send
+* `x-ratelimit-remaining`: the number of requests remaining within the current rate limit window
+* `x-ratelimit-reset`: the Unix timestamp datetime when you limit resets
+
+For example, if you receive:
+
+```
+x-ratelimit-limit: 100
+x-ratelimit-remaining: 99
+x-ratelimit-reset: 1675334140
+```
+
+It means the endpoint you're calling has a rate limit of `100` per minute. You
+have `99` requests left in the current window. And your limit will be
+replenished at `1675334140` which is `Thursday, 2 February 2023 10:35:40`.
+
+We use a [Fixed Window](https://flask-limiter.readthedocs.io/en/stable/strategies.html#fixed-window)
+algorithm to manage rate limits.
+
+
 ### 500
 
 ```json
