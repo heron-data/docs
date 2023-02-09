@@ -19,11 +19,13 @@ Before following this guide, you will need:
 1. Log in to [dashboard.herondata.io](http://dashboard.herondata.io)
 2. Go to **Companies** on the sidebar menu.
 3. Either create or find the customer that you want to upload a bank statement PDF for
-4. Click the **transactions** drop down menu and select **PDF** under upload transactions
+4. Click the **transactions** drop down menu and select **PDF** under **Upload transactions**
 5. In the message box, input the requested information about the bank statement
 6. Select and upload your PDF file
-7. During processing, you will be able to view all your PDF files by clicking **PDFs** from the **transactions** drop down menu
-8. When your PDF is finished loading, you can
+7. During processing, you will be able to view all your PDF files by clicking **PDFs** under **View transactions** from the **transactions** drop down menu
+8. By viewing a PDF, you can view the extracted results from the PDF and either approve or reject the PDF
+9. Approving the PDF loads the transactions into the Heron system for the particular company
+10. Once this is done, set the company status to "ready" to initiate enrichment and to see results like balance, P&L, and scorecard
 
 ## Integration steps (API)
 
@@ -36,7 +38,6 @@ Before following this guide, you will need:
 Your PDF can be in 1 of a few statuses:
 
 -   **new** -- the PDF has just been created in the Heron system
--   **submitted** -- the PDF has been sent to OCR service for parsing
 -   **parsed** -- the PDF has been parsed by the OCR service
 -   **processed** -- the OCR service response has been processed and the results are ready to review in the dashboard
 -   **approved** -- if auto-approval is turned off, you can manually approve PDFs to load transactions into the Heron system
