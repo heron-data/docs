@@ -24,21 +24,21 @@ If you want to try our merchant capabilities without credentials, visit our [try
 ## API
 
 Once you have used your dashboard credentials to log in, you will be able to
-see your API credentials (`username` and `api_key`) in the dashboard under
+see your API credentials (`api_key`) in the dashboard under
 `Settings`.
 
 We use [Basic access
 authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
 This means you should send the base64-encoded version of your
-`username:api_key` in the `Authorization: Basic` header.
+`:api_key` in the `Authorization: Basic` header.
 
 Most modern HTTP libraries handle the encoding for you, but here's a
 step-by-step example for clarity:
 
-1. Encode your `username` and `api_key` to get your token:
+1. Encode your `api_key` to get your token:
 
     ```jsx
-    echo -n "<username>:<api_key>" | openssl base64
+    echo -n ":<api_key>" | openssl base64
     ```
 
 2. Add the output of the above command in the `Authorization` header:
