@@ -29,13 +29,14 @@ see your API credentials (`api_key`) in the dashboard under
 
 We use [Basic access
 authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
-This means you should send the base64-encoded version of your
-`:api_key` in the `Authorization: Basic` header.
+Instead of the typical `<username>:<password>`, keep the username blank and use
+the `api_key` as the password. This means you should send the base64-encoded
+version of `:<api_key>` in the `Authorization: Basic` header.
 
 Most modern HTTP libraries handle the encoding for you, but here's a
 step-by-step example for clarity:
 
-1. Encode your `api_key` to get your token:
+1. Encode your `api_key` to get your token and leave the username spot blank:
 
     ```jsx
     echo -n ":<api_key>" | openssl base64
