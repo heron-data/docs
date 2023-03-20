@@ -47,12 +47,13 @@ Your PDF can be in 1 of a few statuses:
 
 ## Auto-approval
 
--   If you deal with large volumes of PDFs, we recommend you enable auto-approval for PDFs
+-   If you deal with large volumes of PDFs, we recommend you enable auto-approval for PDFs. Ask your Heron contact to turn on auto-approval
 -   What this means is that if the processed PDF passes certain checks (e.g., anomaly score below a certain threshold, balances reconcile), we will automatically load the transactions into the Heron system
 -   If any of the checks fail, we will flag that to you and manual review will be required
 
-## Anomaly / fraud
+## Anomalies
 
--   We provide a "fraud score" between 0 to 1000 based on how anomalous the PDF is
--   Anomalous here pertains to how different the PDF submitted is compared to other PDFs from the same institution looks
+-   We provide an "anomaly score" between 0 to 1000 based on how anomalous the PDF is
+-   An "anomaly" is defined as the difference between the submitted PDF and other PDFs from the same financial institution
+-   We display back to you via dashboard and API the reasons for which we find certain PDFs to be anomalous, e.g. the use of an editing software, differences in formatting, etc.
 -   You can choose to set auto approval thresholds based on the anomaly score of a PDF
