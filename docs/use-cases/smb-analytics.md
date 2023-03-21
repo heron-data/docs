@@ -23,7 +23,7 @@ Please contact your Heron representative to find out more.
 
 ## Get started
 
-Most customers that use Heron for this use case begin by enriching their transaction feed first. To get started, please follow the [Enrich Business Bank Data](beautiful-transactions#enrich-business-bank-data) section of the [Beautiful Transactions](beautiful-transactions) section first
+Most customers that use Heron for this use case begin by enriching their transaction feed first. To get started, please follow the [Enrich Business Bank Data](beautiful-transactions#enrich-business-data) section of the [Beautiful Transactions](beautiful-transactions) section first
 
 ## How to use the output
 

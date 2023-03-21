@@ -15,44 +15,22 @@ Making a bank transaction feed look beautiful is one of the core applications of
 
 This helps with an application interface that builds trust and engagement with customers.
 
----
+## Enrich single transaction using Merchant/Extract (either business or consumer data)
+1. **Post transaction:** Send POST `/merchants/extract` [request](https://docs.herondata.io/api#tag/Merchants/paths/~1api~1merchants~1extract/post) with transaction `description` 
+2. **Parse response:** In the response to this `POST` request, you will receive back all items you need for a beautiful transaction feed including the name of the merchant, a clean description, and the payment processor.
+    - **Note:** if the merchant key is `null` (i.e. we could not match a merchant), then the `description_clean` is set to a substring of the original description that our models identified as the relevant entity
 
-If you have bank transaction data for a consumer, jump [here](beautiful-transactions#enrich-consumer-bank-data).
-
-If you have bank transaction data for a business proceed with the next section!
-
----
-
-## Enrich business data
-
-Heron Data is optimized for high coverage and accuracy on SMB merchants and
-categories. Follow this flow to achieve optimal outcomes. 
-
-### Create an end user and enrich transactions
-
-1. **Create an end_user:** Begin by creating an end_user in Heron’s systems that corresponds to a company in your systems. You do this by sending a POST `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/post).
-    1. For the `end_user_id` field, use a unique canonical reference/identifier for the company
-    2. **Note:** If you are sending transactions for a company that you’ve already sent to Heron before, skip this step.
-2. **Post transactions.** Once you have created the end_user, you can start POST’ing transactions for that end_user. Make sure that the `end_user_id` in the payload matches the `end_user_id` you created in 1). You do this by sending POST `/transactions` [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/post).
-    1. As noted, please batch to 1000 transactions or fewer
-    2. **Note:** If you receive transactions directly from Plaid, Ocrolus or in PDF, we allow you to just pass on the file without any manipulation. This replaces using the `/transactions` endpoint in this step. The endpoints you can use are:
-        1. [Plaid - Assets Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1assets/post) 
-        2. [Plaid - Transactions Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1transactions/post)
-        3. [Ocrolus Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1ocrolus/post)
-        4. [PDF](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1pdfs~1v1/post)
-3. **Process Transactions:** When you are done sending us transactions for a company, please send a PUT `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/put), indicating that the end_user is `ready` for processing. 
-4. **Listen to webhook:** We will notify you via a [webhook](/webhooks) when the `end_user_id` is `processed` and available for you to retrieve. You can configure your webhook in the [dashboard](https://dashboard.herondata.io/).
-5. **Get transactions**: Once you have received the webhook, you can send a [GET `/transactions` request](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get) to retrieve the enriched data. Most customers use the `end_user_id` parameter to ensure they only pull transactions for the `end_user_id` that was just enriched.
-    1. **Note**: If you getting transactions for a company that you’ve already sent to Heron before, you can use the `last_updated_min` filter to only get transactions where labels have changed since the value of the filter.
-
-You now have enriched data for a given company. Proceed by looking at [best practises to display back information](beautiful-transactions#how-to-display-back-the-enriched-transactions)!
-
-## Enrich consumer data
+## For a batch of transactions, synchronously enrich all bank data (either business or consumer data)
 :::caution 
 **For this use case, please limit batch sizes to 249 transactions maximum.**
 :::
 1. **Post Transactions:** Send POST `/transactions` [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/post). Make sure that the `end_user_id` in the payload matches a canonical identifier for the consumer from your systems.
-    1. Note that in the payload, only `amount` and `description` are required. For best results, we recommend also sending `timestamp` or `date` and `end_user_id`
+    1. **Note:** that in the payload, only `amount` and `description` are required. For best results, we recommend also sending `timestamp` or `date` and `end_user_id`
+    2. **Note:** If you receive transactions directly from Plaid, Ocrolus or in PDF, we allow you to just pass on the file without any manipulation. This replaces using the `/transactions` endpoint in this step. The endpoints you can use are:
+        - [Plaid - Assets Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1assets/post) 
+        - [Plaid - Transactions Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1transactions/post)
+        - [Ocrolus Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1ocrolus/post)
+        - [PDF](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1pdfs~1v1/post)
 2. **Parse response:** In the response to this `POST` request, you will receive back all items you need for a beautiful transaction feed!
 
 ```json
@@ -121,7 +99,7 @@ If you do not currently receive categories but would like to receive them, pleas
 
 - If categories are enabled for you, you will receive them back as a dictionary in the transactions object ([see here](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get)). You can display back the `label` to your customer, or assign a static logo to each category instead.
 
-- For more use cases around business data categories, please follow the [SMB Analytics Tutorial](use-cases/smb-analytics).
+- For more use cases around business data categories, please follow the [SMB Analytics Tutorial](smb-analytics).
 
 ## Feedback
 
