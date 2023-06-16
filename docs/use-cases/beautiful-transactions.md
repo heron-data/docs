@@ -28,7 +28,7 @@ This helps with an application interface that builds trust and engagement with c
 :::
 
 1. **Post Transactions:** Send POST `/transactions` [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/post). Make sure that the `end_user_id` in the payload matches a canonical identifier for the consumer from your systems.
-   1. **Note:** that in the payload, only `amount` and `description` are required. For best results, we recommend also sending `timestamp` or `date` and `end_user_id`
+   1. **Note:** that in the payload, only `amount` and `description` are required.
    2. **Note:** If you receive transactions directly from Plaid, Ocrolus or in PDF, we allow you to just pass on the file without any manipulation. This replaces using the `/transactions` endpoint in this step. The endpoints you can use are:
       - [Plaid - Assets Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1assets/post)
       - [Plaid - Transactions Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1transactions/post)

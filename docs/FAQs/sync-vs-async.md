@@ -24,7 +24,7 @@ For **SMB underwriting** and **SMB analytics** - we **always** recommend process
 To summarise, the key differences between `sync` and `async` processing are:
 
 - **Speed**: `sync` is faster with respect to processing a single batch of transactions and you do not have to rely on receiving a webhook to know when the process is complete (more information on webhooks here)
-- **Accuracy**: because `async` has additional features and considers an end_user holistically, the categorisation is more accurate for businesses (this can be up to 10 percentage points more accurate and is the only way to account for inter-company transfers)
+- **Accuracy**: the `async` data flow offers enhanced accuracy compared to the sync flow due to additional features and a holistic consideration of the end user. Specifically, the async flow provides up to 10 percentage points higher accuracy, making it the recommended choice for businesses. It excels in accurately categorizing inter-company transfers, which is not possible with the sync flow. This higher accuracy applies to both merchant extraction and categorization classification at a transaction level. Additionally, at the company level, the async flow delivers improved accuracy for metrics, scores, and predictions.
 - **Number of transactions you are able to process in a single batch**: for `sync`, you are able to send a maximum of **2,500 transactions in a single batch**, whereas for `async`, you are able to send a maximum of **20,000 transactions in a single batch**
 
 ### Q: Am I able to process transactions both sync and async?
