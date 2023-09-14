@@ -4,6 +4,15 @@ sidebar_position: 2
 
 # Authentication
 
+## Development vs Production
+
+We handle development and production environments at the credential level. We will
+issue you with a set of dashboard and API credentials you can use for
+development purposes during your trial / onboarding phase.
+
+When you’re ready to move to production, please contact us, and we will issue
+you a set of production credentials.
+
 ## Dashboard
 
 Upon onboarding, you will receive a set of dashboard credentials consisting of a
@@ -16,10 +25,6 @@ hello@herondata.io.
 To reset your password, go to the [Forgot your
 password](https://dashboard.herondata.io/auth/forgot) page. You will receive an
 email with instructions.
-
-:::info
-If you want to try our merchant capabilities without credentials, visit our [try page](https://www.herondata.io/try).
-:::
 
 ## API
 
@@ -48,12 +53,3 @@ step-by-step example for clarity:
     curl "https://app.herondata.io/api/hello_world/authenticated" \
     --header 'Authorization: Basic <base-64-encoded-token>'
     ```
-
-## Development vs Production
-
-We handle development and production environments at the credential level. We will
-issue you with a set of dashboard and API credentials you can use for
-development purposes during your trial / onboarding phase.
-
-When you’re ready to move to production, please contact us, and we will issue
-you a set of production credentials.

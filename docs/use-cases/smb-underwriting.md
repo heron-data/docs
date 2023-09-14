@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # SMB Underwriting
@@ -11,7 +11,7 @@ Heron Data’s main use case is to help lenders and fintechs underwrite SMBs usi
 The key outcomes we achieve for our customers are:
 
 1. **Supercharge underwriters**: Speed up underwriting by an order of magnitude vs. having to manually parse bank data
-2. **Expand addressable marke**t: Underwrite businesses without up-to-date accounting or e-commerce data
+2. **Expand addressable market**: Underwrite businesses without up-to-date accounting or e-commerce data
 3. **Catch fraud**: Because bank data is up-to-date, we have enabled customers to avoid millions of dollars in losses to customers who were loan stacking or had other previously unidentified risk factors
 
 We will begin by enriching the bank data, and then looking at how it can be used to analyse companies from the dashboard and via the API.
@@ -23,14 +23,18 @@ We will begin by enriching the bank data, and then looking at how it can be used
 1. **Create an end_user:** Begin by creating an end_user in Heron’s systems that corresponds to a company/applicant in your systems. You do this by sending a POST `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/post).
    1. For the `end_user_id` field, use a canonical reference/identifier for the company
    2. **Note:** If you are sending transactions for a company that you’ve already sent to Heron before, skip this step.
-2. **Post Transactions.** Once you have created the end_user, you can start POST’ing transactions for that end_user using the `/end_users/<ID>/transactions` endpoint for sending [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1end_users~1%7Bend_user_id_or_heron_id%7D~1transactions/post).
-   1. As noted, please batch up to 20k transactions per request
-   1. **Note:** If you receive transactions directly from Plaid, Ocrolus or in PDF, we allow you to just pass on the file without any manipulation. This replaces using the `/end_users/<ID>/transactions` endpoint in this step. The endpoints you can use are:
+2. **Send Transactions to Heron** Once you have created the end_user, you can start sending us transactions in many ways
+   1. Set up a Direct Plaid Integration - this is our recommendation if you use Plaid and want to perform ongoing portfolio monitoring. By setting up a Direct Plaid Integration, we will automatically retrieve new transactions automatically from Plaid whenever there is an update without any manual intervention required. Steps to set up this integration can be found [here](https://docs.herondata.io/integrations/plaid)
+   2. Send PDF bank statements - **note: this will incur a separate fee per bank statement and must be enabled for your account prior to uploading the documents.** Steps to set up this integration can be found [here](https://docs.herondata.io/integrations/pdf)
+   3. Send system output files - Heron can accept certain files directly without any manipulation. For example, if you use Plaid but do not wish to integrate Heron directly to Plaid then you can send us Plaid reports instead
       1. [Plaid - Assets Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1assets/post)
       2. [Plaid - Transactions Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1transactions/post)
       3. [Ocrolus Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1ocrolus/post)
-      4. [PDF](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1pdfs~1v1/post)
+   4. POST transactions
+      1. If you want to send us transactions directly from your system, you can POST transactions for a given end_user using the `/end_users/<ID>/transactions` endpoint for sending [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1end_users~1%7Bend_user_id_or_heron_id%7D~1transactions/post).
+      2. As noted, please batch up to 20k transactions per request
 3. **Process Transactions:** When you are done sending us transactions for a company, please send a PUT `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/put), indicating that the end_user is `ready` for processing.
+   1. **Note:** if you have set up a Direct Plaid Integration or are sending Heron PDF bank statements - this step is automatically done.
 4. **Listen to webhook:** We will notify you via a [webhook](/webhooks) when the `end_user_id` is `processed`, and available for you to retrieve. You can configure your webhook in the [dashboard](https://dashboard.herondata.io/).
 5. **Get transactions**: Once you have received the webhook, you can send a GET `/end_users/{end_user_id_or_heron_id}/transactions` [request](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1transactions/get) to retrieve the enriched data.
    1. **Note**: We still support the `/transactions` [endpoint](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get) that was previously used by most customers. The new endpoint that is now standard is much more performant, so we recommend using that endpoint instead. If using the old endpoint, you can use the `end_user_id` parameter to ensure you only pull transactions for the `end_user_id` that was just enriched. If you get transactions for a company that you’ve already sent to Heron before, you can use the `last_updated_min` filter to only get transactions where labels have changed since the last time you send and fetched transactions.
