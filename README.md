@@ -11,8 +11,10 @@ $ npm install
 
 ### Local Development
 
+The `SPEC_URL` environment variable needs to be set before running any of the commands.
+
 ```
-$ npm start
+$ SPEC_URL=https://staging-app.herondata.io/swagger/ npm start
 ```
 
 This command starts a local development server and opens up a browser window.
