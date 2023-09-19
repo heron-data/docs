@@ -2,11 +2,11 @@
 sidebar_position: 3
 ---
 
-# SMB Analytics
+# Customer Spend Reporting
 
 ## Overview
 
-Many of our customers use Heron's capabilities to display back insights and analytics to the businesses that are their users. 
+Many of our customers use Heron's capabilities to display back insights and analytics to their customers. 
 The key outcomes we help our customers achieve are:
 
 1. Allow users to see spend by merchant or by category

@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Overview
 
-Enabling your users to lock cards to specific merchants is one of the core use cases of Heron Data. We have invested significant time & effort to make sure that we can provide you with merchant extraction that is both accurate and has low enough latency to “fit” into a card auth flow. We believe that we are the only provider that can currently enable this use case, and we’re excited to receive any feedback on it!
+Enabling your users to lock cards to specific merchants is a common use case of Heron Data. We have invested significant time & effort to make sure that we can provide you with merchant extraction that is both accurate and has low enough latency to “fit” into a card auth flow. We believe that we are the only provider that can currently enable this use case, and we’re excited to receive any feedback on it!
 
 The key outcomes we achieve for our customers are:
 

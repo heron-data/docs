@@ -22,29 +22,27 @@ To get started with the tutorial, pick the use case that most applies to you!
 
 **Core use case**:
 
-- :bank: &nbsp [As a developer, I want to implement Heron Data for SMB underwriting (async flow)](use-cases/smb-underwriting)
+- :bank: &nbsp [I want to implement Heron Data for cash flow underwriting](use-cases/smb-underwriting)
 
 **Other use cases**:
 
-- :lock: &nbsp [As a developer or PM, I want to lock cards to merchants](use-cases/merchant-locking)
+- :lock: &nbsp [I want to lock credit cards to merchants to control spending for certain accounts](use-cases/merchant-locking)
 
-- :chart_with_upwards_trend: &nbsp [As a PM, I want to give financial insights to an SMB or Start-up](use-cases/smb-analytics)
+- :chart_with_upwards_trend: &nbsp [I want to enrich transactions with merchant information to report on customers' spending trends](use-cases/smb-analytics)
 
 ## Data Flows
 
-To ensure seamless integration with Heron, we offer two different data flows tailored to your specific use case:
+To ensure seamless integration with Heron, we offer two different data flows tailored to your specific use case. We strive to make the integration process as user-friendly as possible, and these two data flows cater to various integration requirements, ensuring a smooth and efficient experience for our users.
 
-### Async Data Flow (recommended)
+### Async Data Flow (recommended for cash flow underwriting)
 
 The **async** data flow delivers fast responses, with a p95 response time of approximately 3 minutes. This data flow is specifically designed for high-accuracy transaction categorization and comprehensive merchant enrichment.
 
 ### Sync Data Flow
 
-The **sync** data flow provides instantaneous responses, making it the ideal choice for fast merchant enrichment tasks such as retrieving logos and cleaning up names. It also offers categorization functionality, although with slightly lower accuracy compared to the _async_ flow.
+The **sync** data flow provides instantaneous responses, making it the ideal choice for fast merchant enrichment tasks such as retrieving logos and cleaning up names. 
 
 For a more in-depth understanding of the differences between the sync and async data flows, please refer to our [Sync vs Async FAQ](FAQs/sync-vs-async.md) page.
-
-We strive to make the integration process as user-friendly as possible, and these two data flows cater to various integration requirements, ensuring a smooth and efficient experience for our users.
 
 ## Need more info?
 

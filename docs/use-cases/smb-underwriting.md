@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# SMB Underwriting
+# Cash Flow Underwriting
 
 ## Overview
 
-Heron Data’s main use case is to help lenders and fintechs underwrite SMBs using bank data. We do this by enriching each transaction with a category identifying the transaction (e.g., `Revenue` or `Payroll`), and then aggregating amounts across these labels to give insights into the company.
+Heron Data’s main use case is to help lenders and fintechs underwrite SMBs using bank data. We do this by enriching each transaction with a category identifying the transaction (e.g., `Revenue` or `Debt Investment`), and then aggregating amounts across these labels to give insights into the company.
 
 The key outcomes we achieve for our customers are:
 
@@ -24,32 +24,22 @@ We will begin by enriching the bank data, and then looking at how it can be used
    1. For the `end_user_id` field, use a canonical reference/identifier for the company
    2. **Note:** If you are sending transactions for a company that you’ve already sent to Heron before, skip this step.
 2. **Send Transactions to Heron** Once you have created the end_user, you can start sending us transactions in many ways
-   1. Set up a Direct Plaid Integration - this is our recommendation if you use Plaid and want to perform ongoing portfolio monitoring. By setting up a Direct Plaid Integration, we will automatically retrieve new transactions automatically from Plaid whenever there is an update without any manual intervention required. Steps to set up this integration can be found [here](https://docs.herondata.io/integrations/plaid)
-   2. Send PDF bank statements - **note: this will incur a separate fee per bank statement and must be enabled for your account prior to uploading the documents.** Steps to set up this integration can be found [here](https://docs.herondata.io/integrations/pdf)
-   3. Send system output files - Heron can accept certain files directly without any manipulation. For example, if you use Plaid but do not wish to integrate Heron directly to Plaid then you can send us Plaid reports instead
+   1. Set up a Direct Plaid Integration - this is recommended if you use Plaid and want to perform ongoing portfolio monitoring. By setting up a Direct Plaid Integration, we will automatically retrieve new transactions automatically from Plaid whenever there is an update, without any manual intervention required. Steps to set up this integration can be found [here](https://docs.herondata.io/integrations/plaid)
+   2. Send PDF bank statements - **note: this will incur a separate fee per bank statement and PDF parsing must be enabled for your account prior to uploading the documents.** Steps to set up this integration can be found [here](https://docs.herondata.io/integrations/pdf)
+   3. Send system output files - Heron can accept certain files directly without any manipulation. For example, if you use Plaid but do not wish to integrate Heron directly to Plaid, then you can send us Plaid reports instead
       1. [Plaid - Assets Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1assets/post)
       2. [Plaid - Transactions Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1plaid~1transactions/post)
       3. [Ocrolus Report](https://docs.herondata.io/api#tag/EndUserIntegrations/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1ocrolus/post)
-   4. POST transactions
-      1. If you want to send us transactions directly from your system, you can POST transactions for a given end_user using the `/end_users/<ID>/transactions` endpoint for sending [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1end_users~1%7Bend_user_id_or_heron_id%7D~1transactions/post).
-      2. As noted, please batch up to 20k transactions per request
+   4. POST transactions via API
+      1. If you want to send us transactions directly from your system, you can POST transactions for a given end_user using the `/end_users/{end_user_id}/transactions` endpoint for sending [requests](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1end_users~1%7Bend_user_id_or_heron_id%7D~1transactions/post).
+      2. **Note:** Please batch up to 20k transactions per request
 3. **Process Transactions:** When you are done sending us transactions for a company, please send a PUT `end_users` [request](https://docs.herondata.io/api#tag/EndUsers/paths/~1api~1end_users/put), indicating that the end_user is `ready` for processing.
-   1. **Note:** if you have set up a Direct Plaid Integration or are sending Heron PDF bank statements - this step is automatically done.
+   1. **Note:** if you have set up a Direct Plaid Integration or are sending Heron PDF bank statements, skip this step. 
 4. **Listen to webhook:** We will notify you via a [webhook](/webhooks) when the `end_user_id` is `processed`, and available for you to retrieve. You can configure your webhook in the [dashboard](https://dashboard.herondata.io/).
 5. **Get transactions**: Once you have received the webhook, you can send a GET `/end_users/{end_user_id_or_heron_id}/transactions` [request](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1end_users~1{end_user_id_or_heron_id}~1transactions/get) to retrieve the enriched data.
    1. **Note**: We still support the `/transactions` [endpoint](https://docs.herondata.io/api#tag/Transactions/paths/~1api~1transactions/get) that was previously used by most customers. The new endpoint that is now standard is much more performant, so we recommend using that endpoint instead. If using the old endpoint, you can use the `end_user_id` parameter to ensure you only pull transactions for the `end_user_id` that was just enriched. If you get transactions for a company that you’ve already sent to Heron before, you can use the `last_updated_min` filter to only get transactions where labels have changed since the last time you send and fetched transactions.
 
-You now have enriched data for a given company. Depending on your use case, you may just want to display this enriched data back to your data science team, or use it in other internal applications.
-
-:::info Note on webhooks
-From the Heron dashboard, underwriters are able to request a review for a
-company when they believe that there are errors with Heron’s classification.
-When the review is finalised, we will trigger a `reviewed` webhook similar to
-the example in 4). If your organisation only consumes Heron’s output via the
-dashboard, you don’t have to do anything else. If you pull raw data into your
-systems, please make sure that you repeat step 5) after receiving a webhook
-with the status `reviewed.`
-:::
+You now have enriched data for a given company. 
 
 ## Inspect company using the dashboard
 
@@ -57,21 +47,22 @@ _This section only describes the dashboard at a very high-level. To get more det
 
 During your integration, you can use the [dashboard](https://dashboard.herondata.io/) to make sure that all steps work as expected.
 
-1. Navigate to the `Companies` page. This will give you an overview over the companies (i.e., `end_user`) you have created.
+1. Navigate to the `All Companies` page. This will give you an overview over the companies (i.e., `end_user`) you have created.
 
 ![Companies Page](/img/dashboard_companies_page.png)
 
-2. You can see the status of the company in the `status` column of the main table. To inspect the transactions uploaded, press `transactions` on the right, then `view` transactions.
-3. To get a sense of the possible visualisations on top of the enriched data, navigate to `Summary` for one of the companies. Here, you will see Revenue, P&L, risk flags and other financial metrics about the company.
-4. To verify all possible categories that your model may attach to transactions, navigate to the `Categories` tab. You can inspect all labels there.
-
-![Categories Page](/img/dashboard_categories_page.png)
+2. You can see the status of the company in the `status` column of the main table. To view the generated reports for a company, click on the companies' `name`.
+3. To ensure that the reports are suitable for underwriting, confirm that the three sets of data quality checks have passed for the company (i.e. Data Sources, Accounts, Transactions).
+   1. To view the data checks, click on the applicable application component on the left hand panel and then `Data Checks` at the top
+4. If all of the Data Quality checks have passed, navigate to one of the `Underwriting Reports` for one of the companies. Here, you will see multiple reports that visualize Deposits, Withdrawals, Debt, Revenue, P&L, risk flags and other financial metrics about the company.
+5. To inspect the transactions uploaded, click on the `transactions` button on the left.
+6. To verify all possible categories that your model may attach to transactions, navigate to the `Categories` tab. You can inspect all labels there.
 
 ## Retrieve aggregate metrics on a company
 
 Instead of consuming the enriched transaction data, it may be easier to consume aggregated metrics for a given company. For example, you may want to see monthly historical revenue for a company, as estimated by Heron Data.
 
-We allow you to do this for aggregate metrics (our Heron Scorecard) and historical time series and forecasts per category label.
+We allow you to do this by downloading either self-contained reports (e.g. Bank Statement Summary, Cash-Based P&L), certain aggregate metrics contained in our Heron Scorecard, and/or historical time series and forecasts per category label.
 
 ### Get Heron Scorecard
 
