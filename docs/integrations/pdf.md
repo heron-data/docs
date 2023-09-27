@@ -75,5 +75,11 @@ You can quickly and easily see the status of PDFs at the end_user level in the C
 -   You can choose to set auto approval thresholds based on the anomaly score of a PDF
 
 ## Duplicate PDF detection
-
 -   When uploading a PDF bank statement, we will determine whether or not the given file has been previously uploaded to this specific end_user. If a duplicate file is found, we will return a 409 conflict error during the upload process and we will not save/process the file
+
+## Webhook topics
+1. `pdf.processed` -- PDF status has been set to "processed"
+2. `pdf.checks_passed` -- PDF checks have passed
+3. `pdf.checks_failed` -- PDF checks have failed
+4. `pdf.transactions_loaded` -- PDF status has been set to "transactions_loaded"
+5. `pdf.failed` -- PDF status has been set to "failed" and we provide reasons in `pdf.notes`
