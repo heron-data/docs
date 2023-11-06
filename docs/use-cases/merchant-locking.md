@@ -15,11 +15,12 @@ The key outcomes we achieve for our customers are:
 
 An overview of the flow is here:
 
+<!-- Update this image with high-resolution -->
 ![Merchant Lock Schema](/img/merchant_lock_schema.png)
 
 ## Locking flow
 
-1. First, you have to enable your user to pick a canonical Heron merchant to lock a card to. You can do this by offering a free-form “search merchant” text field to the customer that sends GET `/merchants/search` [requests](https://docs.herondata.io/api#tag/Merchants/paths/~1api~1merchants~1search/get). You can populate possible results you show to the user from the results you get from our endpoint. 
+1. You have to enable your user to pick a canonical Heron merchant to lock a card to. You can do this by offering a free-form “search merchant” text field to the customer that sends GET `/merchants/search` [requests](https://docs.herondata.io/api#tag/Merchants/paths/~1api~1merchants~1search/get). You can populate possible results you show to the user from the results you get from our endpoint.
 2. Once the customer has confirmed a merchant, store the `heron_id` of that merchant as the whitelisted merchant for that card.
-3. When the user makes a transaction, send a POST `merchants/extract` [request](https://docs.herondata.io/api#tag/Merchants/paths/~1api~1merchants~1extract/post). This endpoint is optimized for very low latency of 200ms-500ms as part of an auth flow, and only accepts a single transaction.
+3. When the user makes a transaction, send a POST `merchants/extract` [request](https://docs.herondata.io/api#tag/Merchants/paths/~1api~1merchants~1extract/post). This endpoint is optimized for low latency (200ms-500ms) as part of an auth flow, and only accepts a single transaction.
 4. Only authorize the transaction with your payment gateway when the `heron_id` you receive back in the response matches the `heron_id` that the card was locked to in step 2.
