@@ -22,13 +22,13 @@ To get started with the tutorial, pick the use case that most applies to you!
 
 **Core use case**:
 
-- :bank: &nbsp [I want to implement Heron Data for cash flow underwriting](use-cases/smb-underwriting)
+- :bank: [I want to implement Heron Data for cash flow underwriting](use-cases/smb-underwriting)
 
 **Other use cases**:
 
-- :lock: &nbsp [I want to lock credit cards to merchants to control spending for certain accounts](use-cases/merchant-locking)
+- :lock: [I want to lock credit cards to merchants to control spending for certain accounts](use-cases/merchant-locking)
 
-- :chart_with_upwards_trend: &nbsp [I want to enrich transactions with merchant information to report on customers' spending trends](use-cases/smb-analytics)
+- :chart_with_upwards_trend: [I want to enrich transactions with merchant information to report on customers' spending trends](use-cases/smb-analytics)
 
 ## Data Flows
 
