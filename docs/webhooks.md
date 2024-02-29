@@ -33,8 +33,11 @@ Where:
     -   `transactions.deleted`, triggered when transactions are deleted.
     -   `transactions.updated`, triggered within 10 minutes of the last change on transactions for a given end user (e.g. after feedback on category or Heron manual review).
     -   `pdf.processed`, triggered when Heron has successfully processed a PDF document.
+    -   `pdf.checks_passed`, triggered when the PDF document reconciles and the PDF does not exceed the anomaly threshold (if fraud is enabled for your account).
+    -   `pdf.checks_failed`, triggered when either the PDF does not reconcile and/or the PDF exceeds the anomaly threshold (if fraud is enabled for your account).
+    -   `pdf.failed`, triggered when Heron has failed to process a PDF document i.e., failed to extract any transactions.
     -   `pdf.transactions_loaded`, triggered when the transactions from a processed PDF document have been loaded into an end_user_id.
-    -   `pdf.failed`, triggered when Heron has failed to process a PDF document.
+    
 
 -   `created` is the UTC datetime when the webhook was sent, in ISO format.
 -   `data` contains the data of the resource which relates to this event.
