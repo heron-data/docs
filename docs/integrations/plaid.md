@@ -41,7 +41,8 @@ Before following this guide, you will need:
    to the **webhook URL**. (Alternatively, if you want to keep your webhook
    handling, forward all Plaid incoming webhooks including headers to the
    **webhook URL**)
-8. In your code, after calling
+8. **New Requirement:**  When creating a link token with the **[`/link/token/create`](https://plaid.com/docs/api/tokens/#linktokencreate)** endpoint, you must now include the transactions.days_requested field to specify the desired historical transaction length. The default is 90 days, but you should now set the transaction.days_requested field to 730 days.
+9. In your code, after calling
    **[`/item/public_token/exchange`](https://plaid.com/docs/api/tokens/#itempublic_tokenexchange)**
    send the resulting Plaid `item_id` and `access_token`, along with your
    `end_user_id` as a `POST` request to the **link URL**, [documented
