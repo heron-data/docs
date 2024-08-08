@@ -14,7 +14,7 @@ slug: /
     <a href="https://www.herondata.io" target="_blank" rel="noopener noreferrer">Website</a> | <a href="/api">OpenAPI Reference</a> | <a href="https://pypi.org/project/heron-data/" target="_blank" rel="noopener noreferrer">Python Client</a> | <a href="https://app.herondata.io/swagger" target="_blank" rel="noopener noreferrer">Swagger</a> | <a href="https://dashboard.herondata.io/" target="_blank" rel="noopener noreferrer">Dashboard</a>
 </p>
 
-Heron Data allows you to underwrite small business faster and with greater confidence. Bank data is the immutable source of truth for a business. We parse bank transaction data either from PDF bank statements or via aggregators like Plaid. Leveraging our proprietary ML models, we extract key information from the transactions and categorize them into your desired output helping you to underwrite small businesses.
+Heron Data allows you to underwrite small business faster and with greater confidence. We take sources of data about a company -- bank data, application forms, tax returns, and other sources -- extract key information from these sources, and transform them into your desired output.
 
 ## What we enable you to do
 
