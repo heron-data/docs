@@ -11,11 +11,13 @@ To integrate with Heron Data using Plaid, you’ll need to configure an integrat
 
 Before following this guide, you will need:
 
-- Access to [dashboard.herondata.io](http://dashboard.herondata.io) and via your `username` and `password`, and also an `api_key` to call our API.
+- Access to [dashboard.herondata.io](http://dashboard.herondata.io), via your `username`, `password` and generated `api_key` to call our API.
 - A working [Plaid Link](https://plaid.com/docs/link/) implementation including storing `item_id`s and `access_token`s in your system.
 - A unique identifier for each of your customers (which can have many Plaid connections) that you can send to us. We call this the `end_user_id`.
 
 ## Integration steps
+
+<!-- I would add a video screen capture here - I like following visual instructions with the verbal ones -->
 
 1. Log in to [dashboard.herondata.io](http://dashboard.herondata.io)
 2. Go to **Settings** on the sidebar menu then scroll to the **Integrations** section.
